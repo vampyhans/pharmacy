@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PharmarcyController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +15,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
-    return view('welcome');
-});
+})->middleware('ToHome');
+
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//user routes
+Route::get('dashboard', [UserController::class, 'index'])->name('user-home');
+Route::get('createPrescription', [UserController::class, 'createPrescription'])->name('createPrescription');
+Route::post('postPrescription', [UserController::class, 'postPrescription'])->name('postPrescription');
+Route::get('ViewQuotation/{id}', [UserController::class, 'ViewQuotation'])->name('ViewQuotation');
+Route::get('ViewQuotationDetails/{id}', [UserController::class, 'ViewQuotationDetails'])->name('ViewQuotationDetails');
+Route::post('postPrescription', [UserController::class, 'postPrescription'])->name('postPrescription');
+Route::post('acceptQuotation', [UserController::class, 'acceptQuotation'])->name('acceptQuotation');
+Route::post('rejectQuotation', [UserController::class, 'rejectQuotation'])->name('rejectQuotation');
+
+//pharmacy
+Route::get('pharmacyDashboard', [PharmarcyController::class, 'index'])->name('pharmacy-home');
+Route::get('ViewPrescription/{id}', [PharmarcyController::class, 'ViewPrescription'])->name('ViewPrescription');
+Route::get('addQuotation/{id}', [PharmarcyController::class, 'addQuotation'])->name('addQuotation');
+Route::post('saveQuotation', [PharmarcyController::class, 'saveQuotation'])->name('saveQuotation');

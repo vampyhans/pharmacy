@@ -9,9 +9,12 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <link rel="stylesheet" href="{{ URL::asset('assets/custom.css') }}">
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -76,5 +79,6 @@
             @yield('content')
         </main>
     </div>
+    <script src="{{ URL::asset('assets/custom.js') }}"></script>
 </body>
 </html>

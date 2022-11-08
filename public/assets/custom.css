@@ -1,0 +1,24 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: 5px;
+    background-color: #ffffff;
+    padding: 5px;
+    grid-template-areas: 
+      "photoOne photoOne photoOne photoOne"
+      "photoTwo photoThree photoFour photoFive";
+  }
+  
+  .grid-container > img {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+    height: 100px;
+    border: #000000 1px solid;
+  }
+  
+  .grid-container > img:first-child {
+    grid-area:photoOne;
+    min-height: 450px;
+  }

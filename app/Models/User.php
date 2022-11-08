@@ -21,7 +21,17 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'address',
+        'dob',
+        'contact',
+        'type',
+
     ];
+
+    public function prescriptions()
+    {
+     return $this->hasMany('App\Models\Prescription', 'user_id');
+    }
 
     /**
      * The attributes that should be hidden for serialization.
